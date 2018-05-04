@@ -1,11 +1,11 @@
 # specflow-poc
 # Dependencies
 You must install nuget packages in visual studio:</br>
-SpecRun.SpecFlow 2.3.0
-	Which includes:
-	SpecFlow v2.3.2
-	SpecRun.Runner v1.7.1
-	SpecRun.SpecFlow.2-3-0 v1.7.1
+SpecRun.SpecFlow 2.3.0</br>
+	Which includes:</br>
+	SpecFlow v2.3.2</br>
+	SpecRun.Runner v1.7.1</br>
+	SpecRun.SpecFlow.2-3-0 v1.7.1</br>
 	
 Selenium Support v3.11.2
 Selenium Webdriver v3.11.2
