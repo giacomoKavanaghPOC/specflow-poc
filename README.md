@@ -1,6 +1,6 @@
 # specflow-poc
 # Dependencies
-You must install nuget packages in visual studio:
+You must install nuget packages in visual studio:</br>
 SpecRun.SpecFlow 2.3.0
 	Which includes:
 	SpecFlow v2.3.2
