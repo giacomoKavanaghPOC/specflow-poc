@@ -90,6 +90,60 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("Invalid email", SourceLine=12)]
+        public virtual void InvalidEmail()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid email", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("I am on the QAWorks Site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "email",
+                        "subject",
+                        "message"});
+            table2.AddRow(new string[] {
+                        "j.Bloggs",
+                        "j.Bloggs@qaworks",
+                        "test automation",
+                        "please contact me I want to find out more"});
+#line 15
+ testRunner.Then("I should not be able to contact QAWorks with an invalid entry", ((string)(null)), table2, "Then ");
+#line 18
+ testRunner.Then("The error message should be The e-mail address entered is invalid.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Blank entry", SourceLine=19)]
+        public virtual void BlankEntry()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blank entry", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 21
+ testRunner.Given("I am on the QAWorks Site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "email",
+                        "subject",
+                        "message"});
+            table3.AddRow(new string[] {
+                        "",
+                        "j.Bloggs@qaworks",
+                        "test automation",
+                        "please contact me I want to find out more"});
+#line 22
+ testRunner.Then("I should not be able to contact QAWorks with an invalid entry", ((string)(null)), table3, "Then ");
+#line 25
+ testRunner.Then("The error message should be The field is required.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [TechTalk.SpecRun.TestRunCleanup()]
         public virtual void TestRunCleanup()
         {
