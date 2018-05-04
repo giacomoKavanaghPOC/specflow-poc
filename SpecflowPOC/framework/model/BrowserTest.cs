@@ -15,7 +15,6 @@ namespace SpecflowPOC.framework.model
         {
             //Extend for potentially a config driven choice of browser
             driver = new ChromeDriver();
-            //Iteration++;
         }
 
         [AfterScenario]

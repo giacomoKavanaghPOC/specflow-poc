@@ -24,8 +24,6 @@ namespace SpecflowPOC.framework.pages
         public void SetWebDriverWait()
         {
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(webDriverWait));
-            //This line below seems to be unnecessary in this test
-            //wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
         }
 
         public BasePage NavigateToPageUrl()
@@ -49,7 +47,6 @@ namespace SpecflowPOC.framework.pages
             return this;
         }
 
-        //I would look to split everything below into a separate find class possibly
         public BasePage WaitFor(Element element)
         {
             wait.Until(driver => Find(element));
@@ -58,26 +55,7 @@ namespace SpecflowPOC.framework.pages
 
         public IWebElement Find(Element element)
         {
-            switch (element.IdentifierType)
-            {
-                case ElementIdentifierType.ClassName:
-                    return driver.FindElement(By.ClassName(element.ClassName));
-
-                case ElementIdentifierType.Name:
-                    return driver.FindElement(By.Name(element.Name));
-
-                case ElementIdentifierType.Id:
-                    return driver.FindElement(By.Id(element.Id));
-
-                case ElementIdentifierType.CssSelector:
-                    return driver.FindElement(By.CssSelector(element.CssSelector));
-
-                case ElementIdentifierType.XPath:
-                    return driver.FindElement(By.XPath(element.XPath));
-
-                default:
-                    throw new ArgumentException("Element Identifier not recognised: " + element.IdentifierType);
-            }
+            return driver.FindElement(element.Identifier);
         }
     }
 }
