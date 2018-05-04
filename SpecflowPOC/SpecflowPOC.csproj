@@ -76,7 +76,6 @@
     <Compile Include="framework\data\ContactUsFormModel.cs" />
     <Compile Include="framework\model\BrowserTest.cs" />
     <Compile Include="framework\model\Element.cs" />
-    <Compile Include="framework\model\ElementIdentifier.cs" />
     <Compile Include="framework\pages\BasePage.cs" />
     <Compile Include="framework\pages\ContactUsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

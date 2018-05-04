@@ -1,11 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SpecflowPOC.framework.data;
 using SpecflowPOC.framework.model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpecflowPOC.framework.pages
 {
@@ -18,18 +14,17 @@ namespace SpecflowPOC.framework.pages
             return "contact-us/";
         }
 
+        //I've decided to call the elements as required rather than identify them all and return them
         //Would prefer to add a specific class attribute or data-item-id to any element required but can use xpath
-        public static Element Title = new Element(ElementIdentifierType.XPath, @"//div[@class='fusion-text']//span[contains(text(),'CONTACT US')]");
-
+        public static Element Title = new Element(By.XPath(@"//div[@class='fusion-text']//span[contains(text(),'CONTACT US')]"));
         //Added in because it's large and took a while to load, because of some throttling problem on my pc
-        public static Element HeaderImage = new Element(ElementIdentifierType.ClassName, "background-image");
-
-        public static Element YourName = new Element(ElementIdentifierType.Name, "your-name");
-        public static Element YourEmail = new Element(ElementIdentifierType.Name, "your-email");
-        public static Element YourCompany = new Element(ElementIdentifierType.Name, "your-company");
-        public static Element YourMessage = new Element(ElementIdentifierType.Name, "your-message");
-        public static Element Send = new Element(ElementIdentifierType.Id, "contact-us-send");
-        public static Element Alert = new Element(ElementIdentifierType.CssSelector, ".fusion-alert").IsOptional();
+        public static Element HeaderImage = new Element(By.ClassName("background-image"));
+        public static Element YourName = new Element(By.Name("your-name"));
+        public static Element YourEmail = new Element(By.Name("your-email"));
+        public static Element YourCompany = new Element(By.Name("your-company"));
+        public static Element YourMessage = new Element(By.Name("your-message"));
+        public static Element Send = new Element(By.Id("contact-us-send"));
+        public static Element Alert = new Element(By.CssSelector(".fusion-alert")).IsOptional();
 
         //This should be abstract static but c# doesn't support it
         public override List<Element> Elements()
@@ -68,5 +63,5 @@ namespace SpecflowPOC.framework.pages
             WaitFor(Alert);
             return this;
         }
-    }
+    } 
 }
