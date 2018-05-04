@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using SpecflowPOC.framework.data;
 using SpecflowPOC.framework.model;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace SpecflowPOC.framework.pages
         public static Element YourMessage = new Element(By.Name("your-message"));
         public static Element Send = new Element(By.Id("contact-us-send"));
         public static Element Alert = new Element(By.CssSelector(".fusion-alert")).IsOptional();
+        public static Element InputError = new Element(By.XPath(@"//span[contains(@role, 'alert')]")).IsOptional();
 
         //This should be abstract static but c# doesn't support it
         public override List<Element> Elements()
@@ -37,7 +39,8 @@ namespace SpecflowPOC.framework.pages
                 YourCompany,
                 YourMessage,
                 Send,
-                Alert
+                Alert,
+                InputError
                 };
         }
 
@@ -61,6 +64,13 @@ namespace SpecflowPOC.framework.pages
         public ContactUsPage WaitForAlert()
         {
             WaitFor(Alert);
+            return this;
+        }
+
+        public ContactUsPage CheckInputError(string inputError)
+        {
+            WaitFor(InputError);
+            Assert.AreEqual(Find(InputError).Text, inputError);
             return this;
         }
     } 
