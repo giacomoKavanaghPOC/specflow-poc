@@ -23,7 +23,6 @@ These versions may or may not be necessary, I have updated to the specified from
 Once the packages are all installed, it should be as simple as Ctrl+R, A.
 
 # Platform limitations
-C#, like java doesn't support abstract static - in my thinking this is a thing, although there is a lot of argument.</br>
 Specflow forces static implementations of BeforeTest and AfterTest which I try and avoid, there is an issue open at https://github.com/techtalk/SpecFlow/issues/706 for this. This has forced me to do some odd things around [BeforeScenario(Order = 1)] in the BrowserTest class and the inherited classes.</br>
 C# doesn't have assertions built in.</br>
 There is some bizare behaviour in visual studio around handled exceptions which can cause problem when debugging the wait function.</br>
