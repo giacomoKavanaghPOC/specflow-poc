@@ -16,19 +16,19 @@ namespace SpecflowPOC.framework.pages
         }
 
         //I've decided to call the elements as required rather than identify them all and return them
+        //These all could be private, and wrapped in functions, this would help with a generic Find(Element) function
         //Would prefer to add a specific class attribute or data-item-id to any element required but can use xpath
-        public static Element Title = new Element(By.XPath(@"//div[@class='fusion-text']//span[contains(text(),'CONTACT US')]"));
+        public Element Title = new Element(By.XPath(@"//div[@class='fusion-text']//span[contains(text(),'CONTACT US')]"));
         //Added in because it's large and took a while to load, because of some throttling problem on my pc
-        public static Element HeaderImage = new Element(By.ClassName("background-image"));
-        public static Element YourName = new Element(By.Name("your-name"));
-        public static Element YourEmail = new Element(By.Name("your-email"));
-        public static Element YourCompany = new Element(By.Name("your-company"));
-        public static Element YourMessage = new Element(By.Name("your-message"));
-        public static Element Send = new Element(By.Id("contact-us-send"));
-        public static Element Alert = new Element(By.CssSelector(".fusion-alert")).IsOptional();
-        public static Element InputError = new Element(By.XPath(@"//span[contains(@role, 'alert')]")).IsOptional();
+        public Element HeaderImage = new Element(By.ClassName("background-image"));
+        public Element YourName = new Element(By.Name("your-name"));
+        public Element YourEmail = new Element(By.Name("your-email"));
+        public Element YourCompany = new Element(By.Name("your-company"));
+        public Element YourMessage = new Element(By.Name("your-message"));
+        public Element Send = new Element(By.Id("contact-us-send"));
+        public Element Alert = new Element(By.CssSelector(".fusion-alert")).IsOptional();
+        public Element InputError = new Element(By.XPath(@"//span[contains(@role, 'alert')]")).IsOptional();
 
-        //This should be abstract static but c# doesn't support it
         public override List<Element> Elements()
         {
             return new List<Element> {
